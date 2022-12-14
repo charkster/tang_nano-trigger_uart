@@ -36,7 +36,7 @@ def type0_positive():
 	trigger.write_list(addr=0, write_byte_list=[1,             0,         trigger_stage1, trigger_time_base, 0,          0,        0,                    1,            1])
 	bram.write_list(addr=0,    write_byte_list=[0b11101101, 0b11101010, 0b00111110])
     #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
-	pat_gen.write_list(addr=0, write_byte_list=[2,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
+	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
 	pat_gen.write_list(addr=5, write_byte_list=[0]) # disable pat_gen, needed as positive edge starts pattern
 
 def type0_negative():
@@ -45,7 +45,7 @@ def type0_negative():
 	trigger.write_list(addr=0, write_byte_list=[0,              0,         trigger_stage1, trigger_time_base, 0,          0,        0,                    1,            1])
 	bram.write_list(addr=0,    write_byte_list=[0b11101101, 0b11101010, 0b00111110])
     #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
-	pat_gen.write_list(addr=0, write_byte_list=[2,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
+	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
 	pat_gen.write_list(addr=5, write_byte_list=[0]) # disable pat_gen, needed as positive edge starts pattern
 
 def type1_positive():
@@ -54,7 +54,7 @@ def type1_positive():
 	trigger.write_list(addr=0, write_byte_list=[1,              1,            trigger_stage1, trigger_time_base, 18,          0,        0,                    1,            1])
 	bram.write_list(addr=0,    write_byte_list=[0b11101101, 0b11101010, 0b00111110])
     #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
-	pat_gen.write_list(addr=0, write_byte_list=[2,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
+	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
 	pat_gen.write_list(addr=5, write_byte_list=[0]) # disable pat_gen, needed as positive edge starts pattern
 
 def type1_negative():
@@ -63,7 +63,7 @@ def type1_negative():
 	trigger.write_list(addr=0, write_byte_list=[0,              1,            trigger_stage1, trigger_time_base, 18,          0,        0,                   1,            1])
 	bram.write_list(addr=0,    write_byte_list=[0b11101101, 0b11101010, 0b00111110])
     #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
-	pat_gen.write_list(addr=0, write_byte_list=[2,            1,        pat_gen_time_base, pat_gen_stage1, 0,             1])
+	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
 	pat_gen.write_list(addr=5, write_byte_list=[0]) # disable pat_gen, needed as positive edge starts pattern
 
 def type2_positive():
@@ -83,7 +83,7 @@ def type2_positive_no_edge():
 	trigger.write_list(addr=0, write_byte_list=[1,             2,           trigger_stage1, trigger_time_base, 18,          0,        1,                   1,            1])
 	bram.write_list(addr=0,    write_byte_list=[0b11101101, 0b11101010, 0b00111110])
     #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
-	pat_gen.write_list(addr=0, write_byte_list=[2,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
+	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
 	pat_gen.write_list(addr=5, write_byte_list=[0]) # disable pat_gen, needed as positive edge starts pattern
 
 def type2_negative():
@@ -101,7 +101,7 @@ def type2_negative_no_edge():
 	trigger.write_list(addr=0, write_byte_list=[0,              2,           trigger_stage1, trigger_time_base, 18,          0,        1,                   1,            1])
 	bram.write_list(addr=0,    write_byte_list=[0b11101101, 0b11101010, 0b00111110])
     #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
-	pat_gen.write_list(addr=0, write_byte_list=[2,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
+	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
 	pat_gen.write_list(addr=5, write_byte_list=[0]) # disable pat_gen, needed as positive edge starts pattern
 
 def type3_positive():
@@ -110,7 +110,7 @@ def type3_positive():
 	trigger.write_list(addr=0, write_byte_list=[1,             3,           trigger_stage1, trigger_time_base, 18,          28,       0,                   1,            1])
 	bram.write_list(addr=0,    write_byte_list=[0b11101101, 0b11101010, 0b00111110])
     #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
-	pat_gen.write_list(addr=0, write_byte_list=[2,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
+	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
 	pat_gen.write_list(addr=5, write_byte_list=[0]) # disable pat_gen, needed as positive edge starts pattern
 
 def type3_negative():
@@ -119,7 +119,7 @@ def type3_negative():
 	trigger.write_list(addr=0, write_byte_list=[0,              3,           trigger_stage1, trigger_time_base, 18,          32,       0,                   1,            1])
 	bram.write_list(addr=0, write_byte_list=[0b11101101, 0b11101010, 0b00111110])
     #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
-	pat_gen.write_list(addr=0, write_byte_list=[2,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
+	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
 	pat_gen.write_list(addr=5, write_byte_list=[0]) # disable pat_gen, needed as positive edge starts pattern
 
 def type4_positive():
@@ -128,7 +128,7 @@ def type4_positive():
 	trigger.write_list(addr=0x00, write_byte_list=[1,             4,            trigger_stage1, trigger_time_base, 18,          28,       0,                   1,            1])
 	bram.write_list(addr=0x000000, write_byte_list=[0b11101101, 0b11101010, 0b00111110])
     #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
-	pat_gen.write_list(addr=0, write_byte_list=[2,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
+	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
 	pat_gen.write_list(addr=5, write_byte_list=[0]) # disable pat_gen, needed as positive edge starts pattern
 
 def type4_positive_no_edge():
@@ -137,7 +137,7 @@ def type4_positive_no_edge():
 	trigger.write_list(addr=0, write_byte_list=[1,             4,            trigger_stage1, trigger_time_base, 18,          29,       1,                   1,            1])
 	bram.write_list(addr=0,    write_byte_list=[0b11101101, 0b11101010, 0b00111110])
     #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
-	pat_gen.write_list(addr=0, write_byte_list=[2,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
+	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
 	pat_gen.write_list(addr=5, write_byte_list=[0]) # disable pat_gen, needed as positive edge starts pattern
 
 def type4_negative():
@@ -146,7 +146,7 @@ def type4_negative():
 	trigger.write_list(addr=0, write_byte_list=[0,             4,            trigger_stage1, trigger_time_base, 18,          28,       0,                   1,            1])
 	bram.write_list(addr=0,    write_byte_list=[0b11101101, 0b11101010, 0b00111110])
     #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
-	pat_gen.write_list(addr=0, write_byte_list=[2,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
+	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
 	pat_gen.write_list(addr=5, write_byte_list=[0]) # disable pat_gen, needed as positive edge starts pattern
 
 def type4_negative_no_edge():
@@ -155,7 +155,7 @@ def type4_negative_no_edge():
 	trigger.write_list(addr=0, write_byte_list=[0,             4,            trigger_stage1, trigger_time_base, 18,          28,       1,                   1,            1])
 	bram.write_list(addr=0,    write_byte_list=[0b11101101, 0b11101010, 0b00111110])
     #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
-	pat_gen.write_list(addr=0, write_byte_list=[2,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
+	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
 	pat_gen.write_list(addr=5, write_byte_list=[0]) # disable pat_gen, needed as positive edge starts pattern
 
 print("These slave_ids need to be correct or FPGA is not connected/programmed")
