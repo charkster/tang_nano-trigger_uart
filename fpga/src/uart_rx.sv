@@ -22,7 +22,7 @@ module uart_rx
     localparam BIT6AT    = int'(SYSCLOCK/BAUDRATE*7.5)-SYNC_DELAY;
     localparam BIT7AT    = int'(SYSCLOCK/BAUDRATE*8.5)-SYNC_DELAY;
     localparam PBITAT    = int'(SYSCLOCK/BAUDRATE*9.2)-SYNC_DELAY; // STOP bit
-    localparam BLK_TIMEOUT = BIT1AT; // this depends on your USB UART chip 
+    localparam BLK_TIMEOUT = BIT4AT; // this depends on your USB UART chip 
 
     logic [$clog2(CLKPERFRM):0] rx_cnt;      // rx flow control
 
