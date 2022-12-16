@@ -4,7 +4,7 @@ import time
 class scarf_uart_slave:
 	
 	# Constructor
-	def __init__(self, slave_id=0x00, num_addr_bytes=1, port=serial.Serial(port='/dev/ttyUSB1', baudrate=3000000, bytesize=8, parity='N', stopbits=1, timeout=0.001), debug=False):
+	def __init__(self, slave_id=0x00, num_addr_bytes=1, port=serial.Serial(port='/dev/ttyUSB1', baudrate=1000000, bytesize=8, parity='N', stopbits=1, timeout=0.001), debug=False):
 		self.slave_id         = slave_id
 		self.num_addr_bytes   = num_addr_bytes
 		self.port             = port
