@@ -66,7 +66,7 @@ module trigger_uart_top (
   assign valid_slave_id = (slave_id == TRIGGER_SLAVE_ID) || (((slave_id == PAT_GEN_SLAVE_ID) || (slave_id == BRAM_SLAVE_ID)) && (!pattern_active));
 
   uart_tx 
-  # ( .SYSCLOCK( 100.0 ), .BAUDRATE( 3.0 ) ) // MHz and Mbits
+  # ( .SYSCLOCK( 100.0 ), .BAUDRATE( 1.0 ) ) // MHz and Mbits
   u_uart_tx
     ( .clk       (clk_100mhz),                // input
       .rst_n     (rst_n_sync),                // input
@@ -77,7 +77,7 @@ module trigger_uart_top (
      );
 
   uart_rx
-  # ( .SYSCLOCK( 100.0 ), .BAUDRATE( 3.0 ) ) // MHz and Mbits
+  # ( .SYSCLOCK( 100.0 ), .BAUDRATE( 1.0 ) ) // MHz and Mbits
   u_uart_rx
     ( .clk           (clk_100mhz),       // input
       .rst_n         (rst_n_sync),       // input
