@@ -1,5 +1,5 @@
 # tang_nano-trigger_uart
-This is a re-write of my previous trigger project. This time Tang Nano and Tang Nano 9k are the target hardware boards and the USB UART is used to configure and enable triggering.<p>
+This is a re-write of my previous trigger project. This time Tang Nano and Tang Nano 9k are the target hardware boards and the USB UART is used to configure and enable triggering (and drive the validation patterns).<p>
 **Tang Nano connections:**
 
 ![picture](https://github.com/charkster/tang_nano-trigger_uart/blob/main/images/tang_nano_trigger.jpg)
