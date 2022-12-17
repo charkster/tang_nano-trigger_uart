@@ -12,6 +12,7 @@ class scarf_uart_slave:
 		self.write_buffer_max = 60 - self.num_addr_bytes # this is a tang_nano limitation
 		self.debug            = debug
 		
+	# this routine allows "num_bytes" to be larger than the self.read_buffer_max
 	def read_list(self, addr=0x00, num_bytes=1):
 		if (self.debug == True):
 			print("Called read")
@@ -48,6 +49,7 @@ class scarf_uart_slave:
 					address += 1
 			return read_list
 	
+	# this routine allows "write_byte_list" to be larger than the self.write_buffer_max
 	def write_list(self, addr=0x00, write_byte_list=[]):
 		self.port.reset_input_buffer()
 		self.port.reset_output_buffer()
@@ -74,7 +76,9 @@ class scarf_uart_slave:
 				print("Wrote address 0x{:02x} data 0x{:02x}".format(address,write_byte))
 				address += 1
 		return 1
-		
+	
+	# Two bytes are returned, when a read of 1 byte is specified. An echo of the slave_id and RNW bit, and the actual read byte
+	# The slave_id is kept and the actual read is ignored. The most significant bit is the RNW, and this is removed to just return the slave_id
 	def read_id(self):
 		self.port.reset_input_buffer()
 		self.port.reset_output_buffer()
