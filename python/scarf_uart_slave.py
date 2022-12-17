@@ -8,8 +8,8 @@ class scarf_uart_slave:
 		self.slave_id         = slave_id
 		self.num_addr_bytes   = num_addr_bytes
 		self.port             = port
-		self.read_buffer_max  = 50 - self.num_addr_bytes
-		self.write_buffer_max = 64 - self.num_addr_bytes
+		self.read_buffer_max  = 31 - self.num_addr_bytes # this is a tang_nano limitation
+		self.write_buffer_max = 60 - self.num_addr_bytes # this is a tang_nano limitation
 		self.debug            = debug
 		
 	def read_list(self, addr=0x00, num_bytes=1):
