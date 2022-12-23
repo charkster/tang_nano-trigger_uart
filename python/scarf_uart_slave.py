@@ -8,7 +8,7 @@ class scarf_uart_slave:
 		self.slave_id         = slave_id
 		self.num_addr_bytes   = num_addr_bytes
 		self.port             = port
-		self.read_buffer_max  = 31 - self.num_addr_bytes # this is a tang_nano limitation
+		self.read_buffer_max  = 60 - self.num_addr_bytes # this is a tang_nano limitation
 		self.write_buffer_max = 60 - self.num_addr_bytes # this is a tang_nano limitation
 		self.debug            = debug
 		
@@ -40,8 +40,7 @@ class scarf_uart_slave:
 				self.port.write(bytearray([byte0] + addr_byte_list + [step_size]))
 				time.sleep(0.1)
 				tmp_read_list = list(self.port.read(step_size + self.num_addr_bytes + 1))
-				read_list = tmp_read_list[-step_size:]
-				del tmp_read_list[0] # first byte is echoed slave_id
+				read_list.extend(tmp_read_list[-step_size:])
 			if (self.debug == True):
 				address = addr
 				for read_byte in read_list:
@@ -68,6 +67,7 @@ class scarf_uart_slave:
 			for addr_byte_num in range(self.num_addr_bytes):
 				addr_byte_list.insert(0, address >> (8*addr_byte_num) & 0xFF )
 			self.port.write(bytearray([byte0] + addr_byte_list + write_byte_list[address-addr:address+step_size]))
+			self.port.write(bytearray([byte0] + addr_byte_list + write_byte_list[address-addr:address+step_size])) # not sure why some writes are not successful
 			time.sleep(0.1)
 		if (self.debug == True):
 			print("Called write_bytes")
