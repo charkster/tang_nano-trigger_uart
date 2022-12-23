@@ -20,8 +20,6 @@ class scarf_uart_slave:
 			print("Error: num_bytes must be larger than zero")
 			return []
 		else:
-			self.port.reset_input_buffer()
-			self.port.reset_output_buffer()
 			byte0 = (self.slave_id + 0x80) & 0xFF
 			remaining_bytes = num_bytes
 			read_list = []
@@ -50,8 +48,6 @@ class scarf_uart_slave:
 	
 	# this routine allows "write_byte_list" to be larger than the self.write_buffer_max
 	def write_list(self, addr=0x00, write_byte_list=[]):
-		self.port.reset_input_buffer()
-		self.port.reset_output_buffer()
 		byte0 = self.slave_id & 0xFF
 		remaining_bytes = len(write_byte_list)
 		address = addr - self.write_buffer_max # expecting to add self.write_buffer_max
@@ -67,8 +63,6 @@ class scarf_uart_slave:
 			for addr_byte_num in range(self.num_addr_bytes):
 				addr_byte_list.insert(0, address >> (8*addr_byte_num) & 0xFF )
 			self.port.write(bytearray([byte0] + addr_byte_list + write_byte_list[address-addr:address+step_size]))
-			time.sleep(0.1) 
-			self.port.write(bytearray([byte0] + addr_byte_list + write_byte_list[address-addr:address+step_size])) # not sure why some writes are not successful
 			time.sleep(0.1)
 		if (self.debug == True):
 			print("Called write_bytes")
