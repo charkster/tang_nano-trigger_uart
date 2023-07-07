@@ -142,8 +142,8 @@ def type4_positive_no_edge():
 
 def type4_negative():
 	print("pattern will trigger on negative pulses less than 18us OR greater than 28us (on the rising edge), pattern is in 10us steps, trigger is in 1us steps")
-	#                                           positive=true, type=outside, stage1_count,   time_base=1us,     count1=18us, count2=0, longer_no_edge=true, trig_dur_sel, enable=true
-	trigger.write_list(addr=0, write_byte_list=[0,             4,            trigger_stage1, trigger_time_base, 18,          28,       0,                   1,            1])
+	#                                           positive=false, type=outside, stage1_count,   time_base=1us,     count1=18us, count2=0, longer_no_edge=true, trig_dur_sel, enable=true
+	trigger.write_list(addr=0, write_byte_list=[0,              4,            trigger_stage1, trigger_time_base, 18,          28,       0,                   1,            1])
 	bram.write_list(addr=0,    write_byte_list=[0b11101101, 0b11101010, 0b00111110])
         #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
 	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
@@ -151,8 +151,8 @@ def type4_negative():
 
 def type4_negative_no_edge():
 	print("pattern will trigger on negative pulses less than 18us OR greater than 28us (as soon as 28us is reached, no edge), pattern is in 10us steps, trigger is in 1us steps")
-	#                                           positive=true, type=outside, stage1_count,   time_base=1us,     count1=18us, count2=0, longer_no_edge=true, trig_dur_sel, enable=true
-	trigger.write_list(addr=0, write_byte_list=[0,             4,            trigger_stage1, trigger_time_base, 18,          28,       1,                   1,            1])
+	#                                           positive=false, type=outside, stage1_count,   time_base=1us,     count1=18us, count2=0, longer_no_edge=true, trig_dur_sel, enable=true
+	trigger.write_list(addr=0, write_byte_list=[0,              4,            trigger_stage1, trigger_time_base, 18,          28,       1,                   1,            1])
 	bram.write_list(addr=0,    write_byte_list=[0b11101101, 0b11101010, 0b00111110])
         #                                           end_address,  num_gpio, timestep,          stage1_count,   repeat_enable, enable
 	pat_gen.write_list(addr=0, write_byte_list=[3,            0,        pat_gen_time_base, pat_gen_stage1, 0,             1])
